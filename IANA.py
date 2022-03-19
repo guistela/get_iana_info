@@ -18,17 +18,3 @@ class Iana:
         """
         print("Downloading and processing: '%s'" % url, file=sys.stderr)
         return pd.DataFrame([x for x in (csv.DictReader(io.StringIO(requests.get(url).text))) if x['Transport Protocol'] == 'tcp'])
-
-
-
-
-# ssh-agent bash -c 'ssh-add /somewhere/yourkey; git clone git@github.com:user/project.git'
-
-
-echo "# get_iana_info" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-ssh-agent bash -c 'ssh-add ~/.ssh/id_rsa; git remote add origin https://github.com/guistela/get_iana_info.git'
-ssh-agent bash -c 'ssh-add ~/.ssh/id_rsa; git push -u origin main'
